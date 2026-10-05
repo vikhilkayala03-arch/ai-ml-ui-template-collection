@@ -1,0 +1,51 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>NovaBank — Transactions</title><style>
+*{box-sizing:border-box}body{margin:0;font-family:Inter,Segoe UI,Arial,sans-serif;background:#061412;color:#f7fbff;min-height:100vh}
+a{text-decoration:none;color:inherit}button,input,select{font:inherit}.app{display:flex;min-height:100vh}
+.sidebar{width:240px;position:fixed;inset:0 auto 0 0;padding:22px 15px;background:rgba(0,0,0,.25);border-right:1px solid #ffffff15}
+.logo{font-size:26px;font-weight:900;background:linear-gradient(135deg,#35e0a1,#35e0a12);-webkit-background-clip:text;color:transparent}.tag{color:#9db0bf;font-size:12px;margin:5px 0 25px}
+.nav a{display:block;padding:12px;margin:5px 0;border-radius:12px;color:#9db0bf}.nav a:hover,.nav a.active{background:#ffffff12;color:#f7fbff}
+.note{position:absolute;bottom:20px;color:#9db0bf;font-size:12px;padding:12px}.main{margin-left:240px;width:calc(100% - 240px);padding:28px;max-width:1500px}
+.top{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px}.crumb,.muted{color:#9db0bf}.avatar{width:38px;height:38px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(135deg,#35e0a1,#35e0a12);font-weight:900}
+.hero{padding:34px;border-radius:24px;background:linear-gradient(145deg,#ffffff12,#ffffff04);border:1px solid #ffffff12}.hero h1{font-size:clamp(30px,5vw,52px);margin:10px 0}.hero p{max-width:760px;line-height:1.7;color:#9db0bf}
+.pill{display:inline-block;padding:6px 9px;border-radius:99px;background:#ffffff0d;color:#9db0bf;font-size:11px}.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
+.btn{border:0;border-radius:11px;padding:11px 16px;background:#35e0a1;color:#071014;font-weight:800;cursor:pointer}.btn:hover{filter:brightness(1.12);transform:translateY(-1px)}.secondary{background:#ffffff10;color:#f7fbff;border:1px solid #ffffff12}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:20px}.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:20px}
+.card{padding:20px;border-radius:18px;background:#0d211d;border:1px solid #ffffff10}.icon{font-size:28px}.metric{font-size:28px;font-weight:900;margin:8px 0}.good{color:#58e5a3}.warn{color:#ffc857}.bad{color:#ff7777}
+.section{margin:30px 0 12px}.row{display:flex;justify-content:space-between;gap:10px;align-items:center;padding:13px;background:#ffffff06;border-radius:12px;margin:8px 0}
+.table{width:100%;border-collapse:collapse}.table th,.table td{text-align:left;padding:13px;border-bottom:1px solid #ffffff0d;font-size:13px}.table th{color:#9db0bf}
+.form{display:grid;gap:12px;max-width:600px}.form label{font-size:13px;color:#9db0bf}.form input,.form select{padding:12px;border-radius:10px;border:1px solid #ffffff15;background:#ffffff08;color:#f7fbff}
+.notice{margin-top:15px;padding:13px;border-left:3px solid #35e0a1;background:#ffffff08;color:#9db0bf;border-radius:10px}.footer{text-align:center;color:#9db0bf;font-size:12px;padding:35px}
+@media(max-width:900px){.grid,.grid4{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:650px){.sidebar{position:static;width:100%;border-right:0;border-bottom:1px solid #ffffff12}.app{display:block}.main{margin:0;width:100%;padding:18px}.nav{display:grid;grid-template-columns:repeat(3,1fr)}.nav a{font-size:12px}.note{display:none}.grid,.grid4{grid-template-columns:1fr}.top{align-items:flex-start}}
+
+.rating{display:flex;align-items:center;gap:7px;margin:12px 0 4px;font-size:13px}
+.stars{letter-spacing:2px;color:#ffd45a}
+.price{font-size:20px;font-weight:900;margin-top:4px}
+.price small{font-size:11px;font-weight:500;color:var(--muted,#9db0bf)}
+.action-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:13px}
+</style><style>
+.vikhil-back{position:fixed;left:16px;bottom:16px;z-index:9999;padding:10px 14px;border-radius:12px;background:#111;color:#fff;text-decoration:none;font:700 13px/1.1 Arial,sans-serif;box-shadow:0 8px 24px rgba(0,0,0,.2);border:1px solid rgba(255,255,255,.18)}
+.vikhil-back:hover{transform:translateY(-2px);filter:brightness(1.1)}
+</style><a class="vikhil-back" data-vikhil-back href="../../index.html">← Vikhil Dashboard</a></head><body><div class="app"><aside class="sidebar">
+<div class="logo">NovaBank</div><div class="tag">Digital Banking</div><nav class="nav"><a class="" href="index.html">⌂ &nbsp;Dashboard</a>
+<a class="" href="accounts.html">◈ &nbsp;Accounts</a>
+<a class="" href="transfer.html">▣ &nbsp;Transfer</a>
+<a class="" href="cards.html">↗ &nbsp;Cards</a>
+<a class="active" href="transactions.html">◉ &nbsp;Transactions</a>
+<a class="" href="profile.html">⚙ &nbsp;Profile</a></nav><div class="note">✨ All pages connected<br>Interactive demo controls</div>
+</aside><main class="main"><div class="top"><span class="crumb">Digital Banking / Transactions</span><span class="avatar">V</span></div>
+<section class="hero"><h1>Transactions</h1><p>Review recent simulated banking activity.</p><div class="actions"><button class="btn" onclick="toast('Data refreshed')">Refresh</button><button class="btn secondary" onclick="toast('New item created in demo mode')">＋ Add</button></div></section><div class="card" style="margin-top:20px"><div class="list"><div class="row"><span><strong>Grocery Market − ₹1,240</strong></span><button class="btn" onclick="toast('Opened: Grocery Market − ₹1,240')">Open</button></div><div class="row"><span><strong>Salary Credit + ₹52,000</strong></span><button class="btn" onclick="toast('Opened: Salary Credit + ₹52,000')">Open</button></div><div class="row"><span><strong>StreamBox − ₹499</strong></span><button class="btn" onclick="toast('Opened: StreamBox − ₹499')">Open</button></div><div class="row"><span><strong>Metro Card − ₹850</strong></span><button class="btn" onclick="toast('Opened: Metro Card − ₹850')">Open</button></div></div></div>
+<div class="footer">NovaBank • Digital Banking • Demo Project</div></main></div>
+<div id="toast" style="position:fixed;right:20px;bottom:20px;background:#111;padding:13px 16px;border-radius:12px;border:1px solid #ffffff20;opacity:0;transition:.25s">Done</div>
+<script>function toast(m){let x=document.getElementById('toast');x.textContent=m;x.style.opacity=1;clearTimeout(window.t);window.t=setTimeout(()=>x.style.opacity=0,2200)}</script>
+<script>
+document.querySelectorAll('button').forEach(function(btn){
+  if(!btn.getAttribute('onclick') && btn.type !== 'submit'){
+    btn.addEventListener('click', function(){
+      if(typeof toast === 'function') toast((this.textContent.trim() || 'Button') + ' opened successfully');
+    });
+  }
+});
+</script>
+</body></html>
